@@ -1,0 +1,29 @@
+
+# spider
+1. 爬取数据 requests
+2. 筛选数据， find find_all select
+3. 存储数据   redis mysql mongo
+4. 分析数据
+
+#
+1. 爬取页面
+* 解码 utf-8 gbk  gb2312
+* 异常判断，error    urllib2 区别 urllib.error  try except finally
+2. 正则筛选 re
+3. 数据库保存
+
+# 正则表达式 - 性能号 复杂
+# pyquery - jQuery - css选择器
+* #foo - <h1 id='foo'>
+* .foo
+* p
+* p h2
+* p>h2
+* p~h2
+* p+h2
+* select('a[test=a]').href
+
+# lxml - libxml2 - XPath
+
+# XML / JSON / YAML - 异构的系统之间的数据交换
+

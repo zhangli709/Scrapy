@@ -1,0 +1,148 @@
+
+# find findall select
+1. findall(tag, attributes, recursive, text,limit, keywords)
+2. find(tag,attributes,recursive,text,keywords)
+* tag 标签
+* attributes 属性
+* recursive 是否查找下面的子层
+* text 内容
+* keywords 关键字
+* limit 搜集几条数据
+    1.bs.tag
+    2. bs.tag.name
+    3. bs.tag.string
+    4. bs.tag.get_text()
+    5. bs.tag.attrs
+    6. bs.tag.attrs['href']
+    7. bs.tag.children
+    8. bs.tag.descendants
+    9. bs.tag.parent
+    10. bs.tag.parents
+    11. bs.tag.next_sibling
+    12. bs.tag.previous_sibling
+    13. find_all('tag')
+    14. find_all(['tag','tag'])
+    15. find_all(re.compile('^b')  b开头的标签
+    16. find_all(attrs={'key': 'value'})
+    17. find_all('a', class='')
+    18. find_all(string=re.compile(''))  查找内容
+
+3. select
+    19. select('tag')
+    20. select('tag[href]')
+    21. select('body a')
+    22. select('head > title')
+    23. select('#link ~ .sister')
+    24. select('.sister')
+    25. select('a#link')
+    26. select('a[href]')
+# robots协议，白帽子。 url/robots.txt
+1. can_fetch(spider, url)
+
+# 爬虫流程
+1. 数据采集 采集列表/已采集列表
+* urllib / requests / aiohttp 下载数据
+2. 数据处理 正则/bs4/lxml/
+* re / lxml / bs4 / pyquery
+3. (序列化 压缩数据)数据存储 mysql/redis/
+* pymysql / redis / sqlalchemy / peewee / pymong
+4. 调度器 - 进程/ 线程/ 协程
+
+# 代理 --隐藏自己的身份
+# 解码 --utf-8/ gbk / gb2312
+
+# 事务的四大特性acid
+1. 原子性 Atomicity 要么全部成功，要么全部回滚
+2. 一致性 Consistency 状态一致
+3. 隔离性 Isolation 并发事件相互隔离
+4. 持久性 Durability 永久性
+# 隔离的四大级别
+1. uncommitted read 读未提交  - Dirty Read
+2. read committed - Unrepeatable Read 不可重复读
+3. repeatable read - Phantom Read 幻读
+4. serializable 没有并发
+* 级别越低，并发越好； 级别越高，并发越差；可以动态更改，根据公司需求
+* 事务隔离级别，可以降低对数据库表的锁的使用，它自己帮我们设置一定的锁。
+
+# 几种表的区别，与什么时候使用
+1. mongdb 适合存储结构不严谨，体积庞大，价值廉价，存放爬虫数据。
+2. redis  保存高速缓存，重要的数据
+
+# 数据的压缩
+1. 序列化数据，反序列化
+* 序列化： 把对象变成字符或字节序列
+* 反序列化： 把字符或字节序列还原成对象
+2. 工具
+* 字符(str) json   dump / dumps / loads / load
+* 字节(byte) pickle 用法同json.
+3. 压缩， zlib
+* 使用方法 compress.compress
+## 压缩
+* zlib.compress(pickle.dumps(content))
+## 解压缩
+* import zlib, pickle
+* pickle.loads(zlib.decompress(client.get(content)))
+
+## requests 的使用   requests 官方文档详情
+1. get post 请求的发送
+2. URL参数和请求头
+3. 复杂的POST请求
+4. 操作cookie
+5. 设置代理服务器
+6. 设置超时
+
+# 习题
+1. 用户代理
+2. 请求头
+
+
+## BeautifulSoup4 的使用
+* bs_obj = Beautifulsoup(html, 'lxml')
+1. 拿标签 bs_obj.p
+2. 拿标签属性 bs_obj.attrs['href']
+3. 拿标签内容
+* bs_obj.text 纯文本 str
+* bs_obj.contents  列表 list,一节一节的。
+4. 子 父 兄 节点
+5. find_all/ find   配合正则
+* find_all(
+6. select css属性
+* select('a[href]')
+
+
+
+
+
+
+
+
+
+afternoon
+
+# url摘要
+* md5 sha1哈希码
+* 同一个东西的哈希码，怎么算都是一样的。
+
+# hashlib
+## 种类 md5 sha1 sha256 sha512, 用法一样，差别在于安全程度
+* from hashlib from md5
+* hasher = md5()
+* hasher.update(''.encode('utf-8'))
+* hasher.hexdigest()
+
+
+# redis 常用于高速缓存，区别于关系型数据库
+1. redis配置。
+* bind (ifconfig)
+* port
+* require password
+* 两种持久化方案  实际中，两种都打开使用。
+    1. RDB
+    2. AOF  append only file
+    * 配置方法
+        1. appendonly yes
+        2. (597)
+* rdbcompress
+* rdbchecksum yes 校验
+* replication
+2.

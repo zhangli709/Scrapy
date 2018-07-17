@@ -1,0 +1,56 @@
+
+# redis配置，--主从复制
+* 目的，读写分离，增加可读性
+* 主人既可以读，又可以写。读操作一般到奴隶处操作。
+* 奴隶只能读。
+info
+1. 主机
+2. 奴隶
+* redis.conf
+* slavof masterip masterport
+* masterauth master-password
+3. 哨兵
+* sentinel.conf
+* sentinel monitor mymaster masterip masterport num(哨兵数投票数）
+* sentinel auth-pass mymaster password
+* sentinel down-after-milliseconds mymaster 5000 （重新选举master事件)
+* sentinel failover-timeout mymaster 180000 (允许宕机返回时间)
+* redis-server sentinel.conf --sentinel 启动
+
+# 负载均衡器
+1. Nginx + 负载均衡算法
+2. LVS
+
+* 避免单点故障， 负载均衡+双活。
+
+# redis
+
+### 链接
+1. redis-cli -h ip -p port
+2. auth password
+3. ping
+
+### 使用
+1. set username admin
+2. get username
+3. hset student1 username admin ex 30
+4. hgetall student1
+2. ttl username 查看过期时间
+* -1未设置   -2已过期   time 过期时间
+
+
+
+
+mongo
+
+## 安装配置
+1. 安装 wget https://www.mongodb.com/download-center#community
+2. 解压 gunzip xx     tar -zxvf xx
+3. mv xx  /usr/local/mongodb
+4. .bashsr   vim      export PATH=$PATH:  url
+* echo PATH
+5. mkdir -p /data/db
+6. mongod  --bind_ip host --quite &
+7. mongo
+
+## 基本使用

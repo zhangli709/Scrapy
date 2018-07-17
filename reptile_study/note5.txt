@@ -1,0 +1,25 @@
+# 表单 动态内容
+
+## 表单
+思路 分析，！！
+1. 版本控制
+2.
+
+### 步骤
+1. cookies
+2. utf8
+3. authenticity_token
+
+### from selenium import webdriver  爬取动态页面的工具
+1. 使用
+
+# 今日任务
+1. 如何处理动态内容
+2. 自动填写表单， （隐藏域，cookies,token,)   (3方，库， seleium)使用，可以测试web应用。
+3. 两个库，pillow处理图像   pytesseract光学识别，可以调用第三方库。
+
+
+框架
+自然语言处理
+协成
+异步io

@@ -1,0 +1,83 @@
+# 爬虫
+
+## robots
+1. www.baidu.com/robots.txt
+
+## builtwith
+1. import builtwith
+2. builtwith.parse('www.baidu.com')
+
+## ssl安全证书
+ssl._create_default_https_cont
+
+## python-whois 查询网站所有者
+
+## robotparser
+1. from urllib import robotparser
+2. parser = robotparser.RobotFileParser()
+3. parser.set_url(url)
+4. parser.can_fetch(user-agent, url) 查看此用户能否爬取
+
+## 爬虫步骤
+1. 获取页面
+2. 解析页面
+3. 抽取数据
+4. 持久化数据
+
+## 基本知识点
+
+1. requests.get(url).content.decode('utf-8')
+2. headers  设置代理
+3. proxies  设置假地址
+4. 装饰器， 设置重试次数
+*
+5. charset 解码
+6. re
+7. BeautifulSoup ,
+* find_all(tag, attrs, text,limit,content)
+* find
+8. lxml
+* select('a[href]'
+9. redis 高速缓存的数据
+* redis_client = redis.Redis(host='47.106.171.59', port=6379, password='123456')  # 链接redis数据库。
+* redis_client.rpush('link_list', link)  列表存储
+* redis_client.sadd('visited_urls', url) 集合存储
+10. mongodb  大量廉价的数据
+* mongo_client = pymongo.MongoClient(host='47.106.171.59', port=27017)
+* mongo_client.db_name.set_name.insert_one({})
+* mongo_client.db_name.set_name.insert_many([{},{}])
+11. mysql
+* conn = pymysql.connect(host=,port=,user=,password=,charset=,db=)
+* cursor = conn.cursor()
+* cursor.execute(sql)
+* conn.commit()
+* cursor.close()
+* conn.close()
+12. 序列化和反序列化，
+* ？？
+* pickle:
+* json  dump / dumps (序列化)    load / loads (反序列化)
+* 序列化 - 对象变成字符
+* 反序列化 - 字符还原为对象
+
+13. 摘要 md5  sha1
+* import hashlib
+* hasher_proto = hashlib.md5()
+* hasher = hasher_proto.copy()
+* hasher.update(link.encode('utf-8')
+* link_digest = hasher.hexdigest()
+
+14. 压缩和反压缩
+* zipped_title = zlib.compress(pickle.dumps(headings[0]))
+* aipped_title = zlib.decompress(pickle.loads(headings[0]))
+
+15. find_all
+* find_all('a')
+* find_all(re.compile(r'^h[1~6]']))
+* find_all('a', href=re.compile(r'foo'))
+* find_all('a', {'class': 'foo'})
+* find_all('a', class='foo')
+
+16. select
+* select('a[href]')
+* select('div[class="hello"]')

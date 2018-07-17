@@ -1,0 +1,45 @@
+
+# process and spider
+
+1. daemon=True 守护线程
+2. 全局解释器锁
+3. Queue线程安全锁, get put
+4. 栈 先进后出
+5. FIFO 先进先出
+6. 生成式 生成器
+7. any  all 全局变量
+8. 装饰器,一般为函数
+9. 类变成函数，写一个类，把装饰器写到类的方法里，然后方法使用魔法方法__call__,可通过类名（），来调用装饰器。
+10. urlparse 对拿到的url内容切割               urljoin
+* scheme  http
+* netloc  www.baidu.com
+* path /a/b/c
+* query  a=b&foo=bar
+*   '%s://%s%s%s' %(scheme,netloc,path,query)  需要自己稍微处理一下
+*  f'{scheme}://{netloc}{path}{query}'
+11. 如何给线程命名， name
+12. 如何拿到当前线程。currnet_thread
+13. redis 主从复制
+* 主人不变
+* 奴隶修改配置
+* 修改哨兵配置
+* 完事。
+14. redis 的 list 类型，保顺序。
+15. lpush rpop    rpush lpop
+
+
+16. mongo
+17. 压缩
+18. bson, 千万别单独安装
+19. mongo里的二进制存储，需要使用Binary,他在bson里。
+20. 3中数据库的使用，pycharm, linux,
+21. 增删改查，
+
+# 作业
+ geyanw.com
+
+ 1. 首页链接。
+ 2. 每个链接的内容，分类存储 一级
+
+ v.taotao.com
+ 动态页面。
